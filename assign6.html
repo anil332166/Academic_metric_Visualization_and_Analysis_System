@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Multiple-Choice Assignment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        form {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            max-width: 600px;
+            margin: auto;
+        }
+
+        p {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #score {
+            font-weight: bold;
+            font-size: 18px;
+            color: #333;
+        }
+        #close {
+            background-color: whitesmoke;
+            color: black;
+        }
+    </style>
+    <script>
+        function calculateScore(event) {
+            event.preventDefault();
+
+            var score = 0;
+
+            var correctAnswers = {
+                "question1": "answer1",
+                "question2": "answer2",
+                "question3": "answer2",
+                "question4": "answer2",
+                "question5": "answer2",
+                "question6": "answer3",
+                "question7": "answer1",
+                "question8": "answer2",
+                "question9": "answer2",
+                "question10": "answer2"
+            };
+
+            for (var question in correctAnswers) {
+                var selectedOption = document.querySelector('input[name="' + question + '"]:checked');
+                if (selectedOption && selectedOption.value === correctAnswers[question]) {
+                    score++;
+                }
+            }
+
+            document.getElementById("score").innerHTML = "Your score is: " + score;
+            document.getElementById("close").disabled = false;
+            document.getElementById("close").style.backgroundColor = "blue";
+            document.getElementById("close").style.color = "white";
+        }
+
+        function feedback() {
+            window.location.href = "feedback.html";
+        }
+    </script>
+</head>
+<body>
+    <h1>Multiple-Choice Assignment</h1>
+
+    <form>
+        <p>Question 1: Which of the following is a key responsibility of an operating system during process management?</p>
+        <input type="radio" name="question1" value="answer1"> Allocating CPU and memory to processes<br>
+        <input type="radio" name="question1" value="answer2"> Designing new applications<br>
+        <input type="radio" name="question1" value="answer3"> Debugging user programs<br>
+        <input type="radio" name="question1" value="answer4"> Compiling high-level code<br><br>
+
+        <p>Question 2: What is the primary goal of a microkernel design?</p>
+        <input type="radio" name="question2" value="answer1"> Increase system performance<br>
+        <input type="radio" name="question2" value="answer2"> Minimize the kernel size and enhance modularity<br>
+        <input type="radio" name="question2" value="answer3"> Eliminate the need for hardware drivers<br>
+        <input type="radio" name="question2" value="answer4"> Combine hardware and software layers<br><br>
+
+        <p>Question 3: Which of the following techniques is used to implement multitasking in modern operating systems?</p>
+        <input type="radio" name="question3" value="answer1"> Semaphore-based computation<br>
+        <input type="radio" name="question3" value="answer2"> Time-sharing and context switching<br>
+        <input type="radio" name="question3" value="answer3"> Virtual memory swapping<br>
+        <input type="radio" name="question3" value="answer4"> Multi-threaded GPU execution<br><br>
+
+        <p>Question 4: In a layered operating system design, the layer directly above the hardware is typically responsible for:</p>
+        <input type="radio" name="question4" value="answer1"> User interface design<br>
+        <input type="radio" name="question4" value="answer2"> Direct hardware access<br>
+        <input type="radio" name="question4" value="answer3"> Networking protocols<br>
+        <input type="radio" name="question4" value="answer4"> Memory allocation for user applications<br><br>
+
+        <p>Question 5: What is the main purpose of system calls in an operating system?</p>
+        <input type="radio" name="question5" value="answer1"> Facilitate communication between kernel and hardware<br>
+        <input type="radio" name="question5" value="answer2"> Allow user-level applications to request OS services<br>
+        <input type="radio" name="question5" value="answer3"> Enable direct memory access for user programs<br>
+        <input type="radio" name="question5" value="answer4"> Implement multitasking in the OS<br><br>
+
+        <p>Question 6: Which of the following is NOT a common method of inter-process communication (IPC)?</p>
+        <input type="radio" name="question6" value="answer1"> Pipes<br>
+        <input type="radio" name="question6" value="answer2"> Shared memory<br>
+        <input type="radio" name="question6" value="answer3"> Scheduling<br>
+        <input type="radio" name="question6" value="answer4"> Message queues<br><br>
+
+        <p>Question 7: Virtual memory is implemented using:</p>
+        <input type="radio" name="question7" value="answer1"> Page tables and swap space<br>
+        <input type="radio" name="question7" value="answer2"> System calls and registers<br>
+        <input type="radio" name="question7" value="answer3"> Scheduling algorithms<br>
+        <input type="radio" name="question7" value="answer4"> Interrupt handling<br><br>
+
+        <p>Question 8: The concept of threads is used in operating systems to:</p>
+        <input type="radio" name="question8" value="answer1"> Improve security of the kernel<br>
+        <input type="radio" name="question8" value="answer2"> Reduce context-switching overhead<br>
+        <input type="radio" name="question8" value="answer3"> Implement hardware abstraction<br>
+        <input type="radio" name="question8" value="answer4"> Create new processes<br><br>
+
+        <p>Question 9: Which scheduling algorithm is most suitable for time-sharing systems?</p>
+        <input type="radio" name="question9" value="answer1"> Shortest Job First (SJF)<br>
+        <input type="radio" name="question9" value="answer2"> Round Robin (RR)<br>
+        <input type="radio" name="question9" value="answer3"> First Come First Serve (FCFS)<br>
+        <input type="radio" name="question9" value="answer4"> Priority Scheduling<br><br>
+
+        <p>Question 10: A critical section in operating system design refers to:</p>
+        <input type="radio" name="question10" value="answer1"> A part of the system responsible for debugging<br>
+        <input type="radio" name="question10" value="answer2"> A segment of code that accesses shared resources<br>
+        <input type="radio" name="question10" value="answer3"> The core of the kernel managing hardware<br>
+        <input type="radio" name="question10" value="answer4"> The process of swapping memory<br><br>
+
+        <button type="submit" id="sub" onclick="calculateScore(event)">Submit</button>
+        <button type="button" id="close" onclick="feedback()" disabled>Close</button>
+    </form>
+
+    <p id="score"></p>
+</body>
+</html>

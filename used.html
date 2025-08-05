@@ -1,0 +1,185 @@
+<script>
+   function assignment1(){
+      window.location="assign.html";
+   }
+   
+</script>
+<script>
+   function assignment2(){
+      window.location="assign2.html";
+   }
+   
+</script>
+<script>
+   function assignment3(){
+      window.location="assignment3.html";
+   }
+   
+</script>
+<script>
+   function feedback()
+   {
+      window.location.href="feedback.html";
+   }
+</script>
+<style> 
+   /* General body styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/* Styling for the playlist-videos section */
+.playlist-videos {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* Styling for the heading */
+.playlist-videos .heading {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+}
+
+/* Styling for the box container */
+.box-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Styling for each box */
+.box {
+    display: block;
+    width: 300px;
+    height: 180px;
+    text-decoration: none;
+    color: #333;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Styling for box images */
+.box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Styling for the play icon */
+.box i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2em;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 10px;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+/* Styling for box titles */
+.box h3 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    margin: 0;
+}
+
+/* Hover effect for the box */
+.box:hover {
+    transform: scale(1.05);
+}
+
+/* Styling for the button */
+button {
+    display: inline-block;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 20px;
+    text-align: center;
+    border: 2px solid #007bff; /* Add border to the button */
+}
+
+/* Hover effect for the button */
+button:hover {
+    background-color: #0056b3;
+    border-color: #0056b3; /* Change border color on hover */
+}
+</style>
+<body>
+   <section class="playlist-videos">
+
+      <h1 class="heading">playlist videos</h1>
+   
+      <div class="box-container">
+   
+         <a class="box" href="Downloads/videoplayback (5).mp4">
+            <i class="fas fa-play"></i>
+            <img src="Downloads/os.jpg" alt="">
+            <h3> os (part 01)</h3>
+         </a>
+         <button type="button" onclick="assignment1()">Assignment 1</button>
+         <a class="box" href="Downloads/videoplayback (6).mp4">
+            <i class="fas fa-play"></i>
+            <img src="Downloads/os.jpg" alt="">
+            <h3> os (part 02)</h3>
+         </a>
+         <button type="button" onclick="assignment2()">Assignment 2</button>
+         <a class="box" href="Downloads/Computer System Architecture.mp4">
+            <i class="fas fa-play"></i>
+            <img src="Downloads/os.jpg" alt="">
+            <h3> os(part 03)</h3>
+         </a>
+         <button type="button" onclick="assignment3()">Assignment 3</button>
+         <a class="box" href="Downloads/Operating System Structure.mp4">
+            <i class="fas fa-play"></i>
+            <img src="Downloads/os.jpg" alt="">
+            <h3> os (part 04)</h3>
+         </a>
+         <button type="button" onclick="assignment()">Assignment 4</button>
+         <a class="box" href="Downloads/System Calls.mp4">
+            <i class="fas fa-play"></i>
+            <img src="Downloads/os.jpg" alt="">
+            <h3> os(part 05)</h3>
+         </a>
+         <button type="button" onclick="assignment()">Assignment 5</button>
+         <a class="box" href="Downloads/Operating System Design & Implementation.mp4">
+            <i class="fas fa-play"></i>
+            <img src="Downloads/os.jpg" alt="">
+            <h3> os (part 06)</h3>
+         </a>
+         <button type="button" onclick="assignment()">Assignment 6</button>
+      </div>
+      <div>
+         <button type="button" onclick="feedback()">Feedback</button>
+      </div>
+   
+   </section>
+</body>
+</html>

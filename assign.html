@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Multiple-Choice Assignment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        form {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            max-width: 600px;
+            margin: auto;
+        }
+
+        p {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #score {
+            font-weight: bold;
+            font-size: 18px;
+            color: #333;
+        }
+        #close {
+            background-color: whitesmoke;
+            color:black;
+        }
+    </style>
+    <script>
+        function calculateScore(event) {
+            event.preventDefault(); // Prevent form submission
+
+            var score = 0;
+
+            // Define correct answers
+            var correctAnswers = {
+                "question1": "answer4",
+                "question2": "answer3",
+                "question3": "answer3",
+                "question4": "answer1",
+                "question5": "answer1",
+                "question6": "answer1",
+                "question7": "answer3",
+                "question8": "answer3",
+                "question9": "answer2",
+                "question10": "answer2"
+            };
+
+            // Loop through each question and check answers
+            for (var question in correctAnswers) {
+                var selectedOption = document.querySelector('input[name="' + question + '"]:checked');
+                if (selectedOption && selectedOption.value === correctAnswers[question]) {
+                    score++;
+                }
+            }
+
+            // Display the score
+            document.getElementById("score").innerHTML = "Your score is: " + score;
+            document.getElementById("close").disabled=false;
+            document.getElementById("close").style.backgroundColor="blue";
+            document.getElementById("close").style.color="white";
+        }
+        function feedback()
+        {
+            window.location.href="feedback.html";
+        }
+    </script>
+</head>
+<body>
+    <h1>Multiple-Choice Assignment</h1>
+
+    <form>
+        <p>Question 1: What is the primary function of an Operating System (OS)?
+
+        </p>
+        <input type="radio" name="question1" value="answer1">Managing hardware resources <br>
+        <input type="radio" name="question1" value="answer2">Providing user input interfaces  
+        <br>
+        <input type="radio" name="question1" value="answer3"> Running applications  
+        <br>
+        <input type="radio" name="question1" value="answer4">All of the above
+        <br><br>
+
+        <p>Question 2:Which of the following is not a type of operating system?
+
+
+        </p>
+        <input type="radio" name="question2" value="answer1">Batch OS <br>
+        <input type="radio" name="question2" value="answer2">Multi-tasking OS <br>
+        <input type="radio" name="question2" value="answer3"> Database OS  <br>
+        <input type="radio" name="question2" value="answer4"> Real-time OS
+
+        <br><br>
+
+        <p>Question 3 Which of the following operating systems is an example of open-source software?
+        </p>
+        <input type="radio" name="question3" value="answer1"> Windows  
+        <br>
+
+        <input type="radio" name="question3" value="answer2">macOS  
+        <br>
+        <input type="radio" name="question3" value="answer3"> Linux<br>
+        <input type="radio" name="question3" value="answer4">  Android
+
+        <br><br>
+
+        <p>Question 4:Which of these is responsible for managing the hardware of a computer system?
+            
+
+        </p>
+        <input type="radio" name="question4" value="answer1"> Kernel   <br>
+        <input type="radio" name="question4" value="answer2">  Application software  
+        <br>
+        <input type="radio" name="question4" value="answer3"> Device drivers  
+        <br>
+        <input type="radio" name="question4" value="answer4">  Shell
+        <br><br>
+
+        <p>Question 5: In which of the following categories does an operating system fall?
+        </p>
+        <input type="radio" name="question5" value="answer1"> System software  
+        <br>
+        <input type="radio" name="question5" value="answer2">  Application software <br>
+        <input type="radio" name="question5" value="answer3"> Utility software<br>
+        <input type="radio" name="question5" value="answer4">Firmware
+
+        <br><br>
+
+        <p>Question 6: What does the "kernel" of an operating system do?
+
+        </p>
+        <input type="radio" name="question6" value="answer1">Handles system resources like memory and CPU <br>
+        <input type="radio" name="question6" value="answer2"> Manages the user interface<br>
+        <input type="radio" name="question6" value="answer3">  Runs applications <br>
+        <input type="radio" name="question6" value="answer4"> Provides security features
+
+        <br><br>
+
+        <p>Question 7: Which of the following is NOT an example of an operating system?
+
+        </p>
+        <input type="radio" name="question7" value="answer1"> Linux  
+        <br>
+        <input type="radio" name="question7" value="answer2">  Windows  
+        <br>
+        <input type="radio" name="question7" value="answer3">Word Processor  
+        <br>
+        <input type="radio" name="question7" value="answer4"> macOS
+        <br><br>
+
+        <p>Question 8: A real-time operating system is designed for systems that require:
+
+        </p>
+        <input type="radio" name="question8" value="answer1"> High-level processing power  
+        <br>
+        <input type="radio" name="question8" value="answer2"> Efficient memory management  
+        <br>
+        <input type="radio" name="question8" value="answer3">  Immediate and predictable response  
+        <br>
+        <input type="radio" name="question8" value="answer4"> Multi-user functionality
+
+        <br><br>
+
+        <p>Question 9: Which of the following is a multi-user operating system?
+
+        </p>
+        <input type="radio" name="question9" value="answer1">Windows 10  
+        <br>
+        <input type="radio" name="question9" value="answer2">  UNIX  
+        <br>
+        <input type="radio" name="question9" value="answer3"> MS-DOS  
+        <br>
+        <input type="radio" name="question9" value="answer4">Android
+
+        <br><br>
+
+        <p>Question 10: What is a key characteristic of an embedded operating system?
+        </p>
+        <input type="radio" name="question10" value="answer1">Used on personal computers <br>
+        <input type="radio" name="question10" value="answer2"> Optimized for specific hardware and applications  
+        <br>
+        <input type="radio" name="question10" value="answer3">Multitasking capabilities  
+        <br>
+        <input type="radio" name="question10" value="answer4"> Allows the user to install software
+
+        <br><br>
+
+        <button type="submit" id="sub" onclick="calculateScore(event)">Submit</button>
+        <button type="button" id="close" onclick="feedback()" disabled >Close</button>
+    </form>
+
+    <p id="score"></p>
+</body>
+</html>

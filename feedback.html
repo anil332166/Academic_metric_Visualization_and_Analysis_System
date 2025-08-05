@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Feedback Form</title>
+    <script>
+        function submitfeed()
+        {
+            alert("Feedback Submitted Successfully !");
+            window.location="programming.html";
+        }
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f9f9f9;
+        }
+        .form-container {
+            max-width: 700px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 8px;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        input[type="radio"], input[type="checkbox"] {
+            width: auto;
+            margin-right: 8px;
+        }
+        textarea {
+            resize: vertical;
+        }
+        .options {
+            margin-left: 20px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 12px 15px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            display: block;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Course Feedback Form</h2>
+        <form action="/submit-feedback" method="post">
+            
+            
+            
+            <!-- Multiple-Choice: Course Satisfaction -->
+            <div class="form-group">
+                <label>How would you rate your overall satisfaction with the course?</label>
+                <div class="options">
+                    <label><input type="radio" name="satisfaction" value="Excellent" required> Excellent</label><br>
+                    <label><input type="radio" name="satisfaction" value="Very Good"> Very Good</label><br>
+                    <label><input type="radio" name="satisfaction" value="Good"> Good</label><br>
+                    <label><input type="radio" name="satisfaction" value="Average"> Average</label><br>
+                    <label><input type="radio" name="satisfaction" value="Poor"> Poor</label>
+                </div>
+            </div>
+            
+            <!-- Checkbox: Topics Covered -->
+            <div class="form-group">
+                <label>Which topics were covered in the course? (Select all that apply)</label>
+                <div class="options">
+                    <label><input type="checkbox" name="topics" value="Topic 1"> Topic 1</label><br>
+                    <label><input type="checkbox" name="topics" value="Topic 2"> Topic 2</label><br>
+                    <label><input type="checkbox" name="topics" value="Topic 3"> Topic 3</label><br>
+                    <label><input type="checkbox" name="topics" value="Topic 4"> Topic 4</label><br>
+                    <label><input type="checkbox" name="topics" value="Others"> Others</label>
+                </div>
+            </div>
+            
+            <!-- Dropdown: Instructor Rating -->
+            <div class="form-group">
+                <label for="instructor-rating">Rate the instructor's effectiveness:</label>
+                <select id="instructor-rating" name="instructor-rating" required>
+                    <option value="" disabled selected>Select a rating</option>
+                    <option value="1">1 - Poor</option>
+                    <option value="2">2 - Fair</option>
+                    <option value="3">3 - Good</option>
+                    <option value="4">4 - Very Good</option>
+                    <option value="5">5 - Excellent</option>
+                </select>
+            </div>
+             <!-- Multiple-Choice: Course Satisfaction -->
+             <div class="form-group">
+                <label>Instructor’s clarity in discussing or presenting course material</label>
+                <div class="options">
+                    <label><input type="radio" name="satisfaction" value="Excellent" required> Excellent</label><br>
+                    <label><input type="radio" name="satisfaction" value="Very Good"> Very Good</label><br>
+                    <label><input type="radio" name="satisfaction" value="Good"> Good</label><br>
+                    <label><input type="radio" name="satisfaction" value="Average"> Average</label><br>
+                    <label><input type="radio" name="satisfaction" value="Poor"> Poor</label>
+                </div>
+            </div>
+            <!-- New: Course Material Quality -->
+            <div class="form-group">
+                <label>How would you rate the quality of the course materials?</label>
+                <div class="options">
+                    <label><input type="radio" name="material-quality" value="Excellent" required> Excellent</label><br>
+                    <label><input type="radio" name="material-quality" value="Very Good"> Very Good</label><br>
+                    <label><input type="radio" name="material-quality" value="Good"> Good</label><br>
+                    <label><input type="radio" name="material-quality" value="Average"> Average</label><br>
+                    <label><input type="radio" name="material-quality" value="Poor"> Poor</label>
+                </div>
+            </div>
+
+            <!-- New: Pace of the Course -->
+            <div class="form-group">
+                <label>Was the pace of the course appropriate?</label>
+                <div class="options">
+                    <label><input type="radio" name="course-pace" value="Too Fast" required> Too Fast</label><br>
+                    <label><input type="radio" name="course-pace" value="Just Right"> Just Right</label><br>
+                    <label><input type="radio" name="course-pace" value="Too Slow"> Too Slow</label>
+                </div>
+            </div>
+
+            <!-- New: Additional Feedback -->
+            <div class="form-group">
+                <label for="improvements">What areas of the course need improvement? (Select all that apply)</label>
+                <div class="options">
+                    <label><input type="checkbox" name="improvements" value="Content"> Content</label><br>
+                    <label><input type="checkbox" name="improvements" value="Delivery"> Delivery</label><br>
+                    <label><input type="checkbox" name="improvements" value="Materials"> Materials</label><br>
+                    <label><input type="checkbox" name="improvements" value="Pace"> Pace</label><br>
+                    <label><input type="checkbox" name="improvements" value="Others"> Others</label>
+                </div>
+            </div>
+
+            <!-- Open-Ended: What did you like about the course? -->
+            <div class="form-group">
+                <label for="likes">What did you like about the course?</label>
+                <textarea id="likes" name="likes" rows="4" placeholder="Write your comments here..."></textarea>
+            </div>
+            
+            <!-- Open-Ended: Suggestions for improvement -->
+            <div class="form-group">
+                <label for="suggestions">Suggestions for improvement:</label>
+                <textarea id="suggestions" name="suggestions" rows="4" placeholder="Share your suggestions here..."></textarea>
+            </div>
+            
+            <!-- Submit Button -->
+            <button type="button" onclick="submitfeed()">Submit Feedback</button>
+        </form>
+    </div>
+</body>
+</html>

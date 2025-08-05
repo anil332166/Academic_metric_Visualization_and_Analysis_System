@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Management</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+}
+
+h1, h2 {
+    color: #343a40;
+}
+
+.card {
+    border: 1px solid #ced4da;
+    border-radius: 0.5rem;
+}
+
+.modal-content {
+    border-radius: 0.5rem;
+}
+
+    </style>
+</head>
+<body>
+
+    <header class="bg-primary text-white text-center py-4">
+        <h1>Event Management</h1>
+        <p>Your gateway to upcoming events</p>
+    </header>
+
+    <div class="container mt-5">
+        <h2 class="text-center">Upcoming Events</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Event 1</h5>
+                        <p class="card-text">Date: October 1, 2024</p>
+                        <p class="card-text">Location: New York City</p>
+                        <p class="card-text">A brief description of Event 1.</p>
+                        <button class="btn btn-primary" data-toggle="modal" data-target="#registrationModal">Register</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Event 2</h5>
+                        <p class="card-text">Date: October 15, 2024</p>
+                        <p class="card-text">Location: Los Angeles</p>
+                        <p class="card-text">A brief description of Event 2.</p>
+                        <button class="btn btn-primary" data-toggle="modal" data-target="#registrationModal">Register</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Event 3</h5>
+                        <p class="card-text">Date: November 5, 2024</p>
+                        <p class="card-text">Location: Chicago</p>
+                        <p class="card-text">A brief description of Event 3.</p>
+                        <button class="btn btn-primary" data-toggle="modal" data-target="#registrationModal">Register</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Registration Modal -->
+    <div class="modal fade" id="registrationModal" tabindex="-1" role="dialog" aria-labelledby="registrationModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="registrationModalLabel">Register for Event</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="registrationForm">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact">Contact Number</label>
+                            <input type="tel" class="form-control" id="contact" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script>
+        document.getElementById("registrationForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent default form submission
+
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const contact = document.getElementById("contact").value;
+
+    if (name && email && contact) {
+        alert("Registration successful!");
+        // You can add functionality to handle form data here
+        $('#registrationModal').modal('hide'); // Close the modal
+        this.reset(); // Reset form fields
+    } else {
+        alert("Please fill in all required fields.");
+    }
+});
+    </script>
+</body>
+</html>

@@ -1,0 +1,520 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Learn With Level Up</title>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="images/logo.png">
+    <link rel="stylesheet" href="stylesheet.css">
+
+    <style>
+        .img2 {
+            height: 450px;
+            width: 450px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 10px 10px 5px grey;
+        }
+        
+        .Intro h2 {
+            background-color: #96ceb4;
+            padding: 10px 20px 10px 20px;
+            text-align: center;
+            margin-top: 100px;
+            color: white;
+        }
+        
+        .Intro {
+            display: flex;
+            align-items: center;
+            width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+            justify-content: space-around;
+            position: relative;
+        }
+        
+        .Intro p {
+            font-weight: bold;
+            text-align: center;
+            padding-left: 10px;
+            padding-right: 10px;
+            margin-top: 50px;
+            margin-bottom: 200px;
+            line-height: 1.5em;
+            font-size: 25px;
+        }
+        
+        .Ref {
+            width: 500px;
+        }
+        
+        .Img {
+            width: 500px;
+            margin: auto;
+        }
+        
+        .Gray {
+            background-color: #f5f7fa;
+            margin-bottom: 100px;
+        }
+        
+        .Bs {
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        
+        .circle1 {
+            background-color: #e5e5e5;
+            border-radius: 50%;
+            height: 500px;
+            width: 500px;
+            margin-left: 300px;
+            margin-bottom: 100px;
+        }
+        
+        .banner {
+            font-size: larger;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            white-space: nowrap;
+            padding-top: 130px;
+            margin-left: -100px;
+        }
+        
+        .par {
+            text-align: center;
+            padding-left: 10px;
+            padding-right: 10px;
+            font-size: 20px;
+            line-height: 2em;
+            padding-top: 40px;
+        }
+        
+        .circle2 {
+            background-color: #d9534f;
+            border-radius: 50%;
+            height: 100px;
+            width: 100px;
+            margin-left: 1000px;
+            margin-top: 40px;
+        }
+        
+        .mar {
+            margin-bottom: 100px;
+        }
+        
+        .Rec {
+            width: 870px;
+            height: 302px;
+            background-color: #478ac9;
+            margin-left: 500px;
+        }
+        
+        .FD {
+            color: white;
+            margin-left: 340px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-size: x-xlarge;
+            padding-top: 70px;
+        }
+        
+        .YF {
+            color: white;
+            margin-left: 340px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            padding-right: 60px;
+            padding-top: 10px;
+        }
+        
+        .B2 {
+            background-color: rgb(71, 138, 201);
+            border: 3px solid white;
+            cursor: pointer;
+            transition: all 0.3s ease 0s;
+            padding-left: 50px;
+            padding-right: 50px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            margin-left: 340px;
+            margin-top: 30px;
+            color: white;
+            font-family: 'Open Sans';
+            font-size: large;
+        }
+        
+        .B2:hover {
+            background-color: white;
+            color: #478ac9;
+        }
+        
+        .blue {
+            border-radius: 50%;
+            height: 500px;
+            width: 500px;
+            margin-top: -240px;
+            margin-left: 300px;
+        }
+        
+        .circle3 {
+            background-color: #adcce9;
+            border-radius: 50%;
+            height: 200px;
+            width: 200px;
+            margin-left: 800px;
+            margin-top: -200px;
+        }
+        
+        .slideshow-container {
+            max-width: 1000px;
+            position: relative;
+            margin: auto;
+            margin-top: 30px;
+        }
+        
+        .mySlides {
+            display: none;
+        }
+        
+        .prev,
+        .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            margin-top: -22px;
+            padding: 16px;
+            color: black;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+        }
+        
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+        
+        .prev:hover,
+        .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        
+        .dot {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+        
+        .active,
+        .dot:hover {
+            background-color: #717171;
+        }
+        
+        .fade {
+            -webkit-animation-name: fade;
+            -webkit-animation-duration: 1.5s;
+            animation-name: fade;
+            animation-duration: 1.5s;
+        }
+        
+        @-webkit-keyframes fade {
+            from {
+                opacity: .4
+            }
+            to {
+                opacity: 1
+            }
+        }
+        
+        @keyframes fade {
+            from {
+                opacity: .4
+            }
+            to {
+                opacity: 1
+            }
+        }
+        
+        .creativity {
+            margin-top: 200px;
+            margin-bottom: -200px;
+        }
+        
+        .rec {
+            height: 10px;
+            width: 100px;
+            background-color: #f1c50e;
+            margin-left: 200px;
+            margin-top: -100px;
+        }
+        
+        .CreImg {
+            margin-left: 1010px;
+            margin-bottom: 100px;
+            margin-top: 100px;
+            display: flex;
+            justify-content: space-around;
+            position: relative;
+        }
+        
+        .rech2 {
+            margin-top: -460px;
+            margin-bottom: 440px;
+            margin-left: 190px;
+            color: #478ac9;
+            font-size: x-large;
+            font-weight: bolder;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        
+        .recp {
+            margin-top: -400px;
+            margin-bottom: 350px;
+            text-align: left;
+            text-transform: capitalize;
+            text-justify: auto;
+            margin-left: 190px;
+            margin-right: 600px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        
+        .B1 {
+            margin-top: 100px;
+            margin-left: 100px;
+            font-family: 'Open Sans', sans-serif;
+            background-color: #96CEB4;
+            font-size: 15px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease 0s;
+            padding: 10px 30px;
+        }
+        
+        .B1:hover {
+            background-color: #96ceb494;
+        }
+        
+        .FinalImage {
+            margin-left: 800px;
+            margin-top: -300px;
+            position: relative;
+        }
+        
+        .final {
+            height: 300px;
+            width: 1519px;
+            background-color: #e5e5e5;
+        }
+        
+        .board {
+            height: 610px;
+            width: 400px;
+            background-color: white;
+            margin-left: 400px;
+            margin-top: -610px;
+            margin-bottom: 50px;
+            padding-top: 250px;
+            position: relative;
+        }
+        
+        .board2 {
+            text-align: center;
+            position: relative;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.n_form').validate();
+        });
+    </script>
+</head>
+
+<body>
+    <header class="header1">
+
+        <div class="container">
+            <div class="logo">
+                <a href="index.html"> <img src="images/logo2.png" alt="Logo"> </a>
+            </div>
+            <nav>
+                <a href="index.html">HOME</a>
+                <a href="aboutus.html">ABOUT US</a>
+                <a href="Courses.html">COURSES</a>
+                <a href="guide.html">GUIDE</a>
+                <a class="button" href="SignUp_Login.html">LOGIN</a>
+            </nav>
+        </div>
+
+    </header>
+
+    <main>
+        <div class="Gray">
+            <div class="Intro" id="Intro">
+                <div class="Ref">
+                    <h2>Tips To Help<br>You Succeed In Life.</h2>
+                    <p>Would you like me to give you a formula for success? It's quite simple, really: Double your rate of failure. You are thinking of failure as the enemy of success. But it isn't at all. You can be discouraged by failure or you can learn
+                        from it, so go ahead and make mistakes. Make all you can. Because remember that's where you will find success."-- Thomas J. Watson</p>
+                </div>
+                <div>
+                   
+                    <h3 class="Bs">I will become successful.</h3>
+                </div>
+            </div>
+        </div>
+        <div class="mar">
+            <div class="circle1">
+                <div class="banner">
+                    <h1>Is Studying The Deciding Factor Of My Life?</h1>
+                    <div class="par">
+                        <p>Many students believe that steaking to studies, doing homework, and acing the exams is enough to have a successful<br>career and a successful life. However this is a major ​misconception! There are certain skills that are a MUST
+                            HAVE in order<br>to find success in this world. Skills that varies from Public speaking to having the ​creativity to show ones self in his work and life.</p>
+                    </div>
+                    <div class="circle2"></div>
+                </div>
+            </div>
+            <div style="margin-bottom: 100px;">
+                <div class="Rec">
+                    <h1 class="FD">What We Do</h1>
+                    <p class="YF">We will help you develop the nesessary skills that will you strive in your life and achieve your dreams!!!</p>
+                    <a href="#blue"><button class="B2">For More Info</button></a>
+                </div>
+                
+                <div class="circle3"></div>
+            </div>
+            <div style="background-color: #f5f7fa">
+                <div style="text-align: center; color: #478ac9; font-size: x-large;">
+                    <h1>The Important Skills</h1>
+                </div>
+                <div class="slideshow-container">
+                    
+
+                   
+                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                </div>
+                <br>
+                <div style="text-align:center">
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                </div>
+                <script>
+                    var slideIndex = 1;
+                    showSlides(slideIndex);
+
+                    // Next/previous controls
+                    function plusSlides(n) {
+                        showSlides(slideIndex += n);
+                    }
+
+                    // Thumbnail image controls
+                    function currentSlide(n) {
+                        showSlides(slideIndex = n);
+                    }
+
+                    function showSlides(n) {
+                        var i;
+                        var slides = document.getElementsByClassName("mySlides");
+                        var dots = document.getElementsByClassName("dot");
+                        if (n > slides.length) {
+                            slideIndex = 1
+                        }
+                        if (n < 1) {
+                            slideIndex = slides.length
+                        }
+                        for (i = 0; i < slides.length; i++) {
+                            slides[i].style.display = "none";
+                        }
+                        for (i = 0; i < dots.length; i++) {
+                            dots[i].className = dots[i].className.replace(" active", "");
+                        }
+                        slides[slideIndex - 1].style.display = "block";
+                        dots[slideIndex - 1].className += " active";
+                    }
+                </script>
+            </div>
+            <div class="creativity" id="blue">
+                <div class="rec"></div>
+               
+                <div class="rech2">
+                    <h2>Creativity</h2>
+                </div>
+                <div class="recp">
+                    <p>We humans are unique in our own ways. Contrary to popular belief<br> humans aren't born gifted with creativity. It's a skill that they constantly<br> work onto improving it, whether my reading books, movies or video games.<br> Inspired
+                        by people or public figures. Remember to always be you, always put yourself<br> in your work. Don't let yourslef drown in your books tho that my kill your creativity.<br> Here are 23 hacks to help you boost your creativity!</p>
+                    <form action="https://www.verywellmind.com/how-to-boost-your-creativity-2795046">
+                        <button class="B1" type="submit">Learn More</button>
+                    </form>
+                    </button>
+                </div>
+            </div>
+            <div class="creativity">
+                <div class="rec"></div>
+                
+                <div class="rech2">
+                    <h2>Confidence</h2>
+                </div>
+                <div class="recp">
+                    <p>Confidence can refer to a general sense of belief and trust in your own ability to control your<br> life or it might be more situation-specific. For example, you might have high self-confidence<br> in an area of expertise but feel
+                        less confident in other areas. Having a healthy level of<br> self-confidence can help you become more successful in your personal and professional life.</p>
+                    <form action="https://www.verywellmind.com/how-to-boost-your-self-confidence-4163098">
+                        <button class="B1" type="submit">Learn More</button>
+                    </form>
+                    </button>
+                </div>
+            </div>
+            <div class="creativity">
+                <div class="rec"></div>
+                
+                <div class="rech2">
+                    <h2>Critical Thinking</h2>
+                </div>
+                <div class="recp">
+                    <p>Critical thinking is the intellectually disciplined process of actively and skillfully conceptualizing,<br> applying, analyzing, synthesizing, and/or evaluating information gathered from, or generated by<br>observation, experience,
+                        reflection, reasoning, or communication, as a guide to belief and action.<br> In its exemplary form, it is based on universal intellectual values that transcend subject matter<br> divisions: clarity, accuracy, precision, consistency,
+                        relevance, and sound.
+                        <form action="https://www.indeed.com/career-advice/career-development/critical-thinking-skills">
+                            <button class="B1" type="submit">Learn More</button>
+                        </form>
+                        </button>
+                </div>
+            </div>
+            <div class="creativity" id="pub_speak">
+                <div class="rec"></div>
+               
+                <div class="rech2">
+                    <h2>Public Speaking</h2>
+                </div>
+                <div class="recp">
+                    <p>Whether we're talking in a team meeting or presenting in front of an audience,<br> we all have to speak in public from time to time. We can do this well or we<br> can do this badly, and the outcome strongly affects the way that people
+                        think
+                        <br> about us. This is why public speaking causes so much anxiety and concern.<br> The good news is that, with thorough preparation and practice<br> you can overcome your nervousness and perform exceptionally well.</p>
+                    <form action="https://professional.dce.harvard.edu/blog/10-tips-for-improving-your-public-speaking-skills/">
+                        <button class="B1" type="submit">Learn More</button>
+                    </form>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="final"></div>
+        <img class="FinalImage" src="images/fff2.jpg" height="600px" width="440px">
+        <div class="board">
+            <h2 class="board2">With These Skills Available in your aresnal. You are ready to face the world! YOU CAN DO IT!!!</h2>
+        </div>
+    
+
+</body>
+
+</html>

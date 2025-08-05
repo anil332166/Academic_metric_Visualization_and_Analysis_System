@@ -1,0 +1,172 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Multiple-Choice Assignment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        form {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            max-width: 600px;
+            margin: auto;
+        }
+
+        p {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #score {
+            font-weight: bold;
+            font-size: 18px;
+            color: #333;
+        }
+        #close {
+            background-color: whitesmoke;
+            color:black;
+        }
+    </style>
+    <script>
+        function calculateScore(event) {
+            event.preventDefault(); // Prevent form submission
+
+            var score = 0;
+
+            // Define correct answers
+            var correctAnswers = {
+                "question1": "answer3",
+                "question2": "answer3",
+                "question3": "answer3",
+                "question4": "answer4",
+                "question5": "answer1",
+                "question6": "answer2",
+                "question7": "answer1",
+                "question8": "answer2",
+                "question9": "answer2",
+                "question10": "answer1"
+            };
+
+            // Loop through each question and check answers
+            for (var question in correctAnswers) {
+                var selectedOption = document.querySelector('input[name="' + question + '"]:checked');
+                if (selectedOption && selectedOption.value === correctAnswers[question]) {
+                    score++;
+                }
+            }
+
+            // Display the score
+            document.getElementById("score").innerHTML = "Your score is: " + score;
+            document.getElementById("close").disabled = false;
+            document.getElementById("close").style.backgroundColor = "blue";
+            document.getElementById("close").style.color = "white";
+        }
+
+        function feedback() {
+            window.location.href = "feedback.html";
+        }
+    </script>
+</head>
+<body>
+    <h1>Multiple-Choice Assignment</h1>
+
+    <form>
+        <p>Question 1: What is a system call in an operating system?</p>
+        <input type="radio" name="question1" value="answer1"> A call to the hardware. <br>
+        <input type="radio" name="question1" value="answer2"> A call to the compiler. <br>
+        <input type="radio" name="question1" value="answer3"> A mechanism to request services from the operating system. <br>
+        <input type="radio" name="question1" value="answer4"> A call to the BIOS. <br><br>
+
+        <p>Question 2: Which of the following is NOT a category of system calls?</p>
+        <input type="radio" name="question2" value="answer1"> Process control. <br>
+        <input type="radio" name="question2" value="answer2"> File management. <br>
+        <input type="radio" name="question2" value="answer3"> Security testing. <br>
+        <input type="radio" name="question2" value="answer4"> Device management. <br><br>
+
+        <p>Question 3: What does the <code>fork()</code> system call in UNIX do?</p>
+        <input type="radio" name="question3" value="answer1"> Creates a new thread. <br>
+        <input type="radio" name="question3" value="answer2"> Terminates a process. <br>
+        <input type="radio" name="question3" value="answer3"> Creates a new process. <br>
+        <input type="radio" name="question3" value="answer4"> Allocates memory to a process. <br><br>
+
+        <p>Question 4: Which of the following system calls is used to terminate a process?</p>
+        <input type="radio" name="question4" value="answer1"> <code>exit()</code> <br>
+        <input type="radio" name="question4" value="answer2"> <code>kill()</code> <br>
+        <input type="radio" name="question4" value="answer3"> <code>abort()</code> <br>
+        <input type="radio" name="question4" value="answer4"> All of the above. <br><br>
+
+        <p>Question 5: Which system call is used to load a new program in the current process?</p>
+        <input type="radio" name="question5" value="answer1"> <code>exec()</code> <br>
+        <input type="radio" name="question5" value="answer2"> <code>load()</code> <br>
+        <input type="radio" name="question5" value="answer3"> <code>spawn()</code> <br>
+        <input type="radio" name="question5" value="answer4"> <code>launch()</code> <br><br>
+
+        <p>Question 6: What is the purpose of the <code>open()</code> system call in file management?</p>
+        <input type="radio" name="question6" value="answer1"> To create a new file. <br>
+        <input type="radio" name="question6" value="answer2"> To open an existing file. <br>
+        <input type="radio" name="question6" value="answer3"> To delete a file. <br>
+        <input type="radio" name="question6" value="answer4"> To close a file. <br><br>
+
+        <p>Question 7: Which of the following system calls is used to establish a communication channel between processes?</p>
+        <input type="radio" name="question7" value="answer1"> <code>pipe()</code> <br>
+        <input type="radio" name="question7" value="answer2"> <code>read()</code> <br>
+        <input type="radio" name="question7" value="answer3"> <code>write()</code> <br>
+        <input type="radio" name="question7" value="answer4"> <code>connect()</code> <br><br>
+
+        <p>Question 8: What is the return value of <code>fork()</code> in the child process?</p>
+        <input type="radio" name="question8" value="answer1"> -1 <br>
+        <input type="radio" name="question8" value="answer2"> 0 <br>
+        <input type="radio" name="question8" value="answer3"> Positive integer <br>
+        <input type="radio" name="question8" value="answer4"> Undefined <br><br>
+
+        <p>Question 9: Which system call is used to change the priority of a process?</p>
+        <input type="radio" name="question9" value="answer1"> <code>setpriority()</code> <br>
+        <input type="radio" name="question9" value="answer2"> <code>nice()</code> <br>
+        <input type="radio" name="question9" value="answer3"> <code>sched()</code> <br>
+        <input type="radio" name="question9" value="answer4"> <code>priority()</code> <br><br>
+
+        <p>Question 10: What does the <code>wait()</code> system call do in process management?</p>
+        <input type="radio" name="question10" value="answer1"> Suspends execution until a child process terminates. <br>
+        <input type="radio" name="question10" value="answer2"> Resumes a suspended process. <br>
+        <input type="radio" name="question10" value="answer3"> Terminates the parent process. <br>
+        <input type="radio" name="question10" value="answer4"> Allocates memory for a process. <br><br>
+
+        <button type="submit" id="sub" onclick="calculateScore(event)">Submit</button>
+        <button type="button" id="close" onclick="feedback()" disabled>Close</button>
+    </form>
+
+    <p id="score"></p>
+</body>
+</html>

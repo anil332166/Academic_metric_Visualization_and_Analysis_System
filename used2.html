@@ -1,0 +1,13 @@
+<html>
+<head><title>Printing Output</title></head>
+<body id="body">
+<b>colo picker in input field :</b>
+<input type="color" id="col">
+<script>
+        var cul=document.getElementById('col').value;
+        document.getElementById('show').innerHTML=cul;
+        document.getElementById('body').style.backgroundColor=cul;
+</script>
+<div id="show"></div>
+</body>
+</html>

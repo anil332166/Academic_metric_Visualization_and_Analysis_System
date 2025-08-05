@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Dashboard - Learning Management System</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+        }
+
+        #sidebar {
+            background-color: #333;
+            color: #fff;
+            width: 250px;
+            padding: 15px;
+            position: fixed;
+            height: 100%;
+        }
+
+        #sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        #sidebar ul li {
+            margin: 15px 0;
+        }
+
+        #sidebar ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        #sidebar ul li a:hover {
+            text-decoration: underline;
+        }
+
+        #main-content {
+            margin-left: 270px;
+            padding: 20px;
+            width: calc(100% - 270px);
+        }
+
+        header {
+            background-color: #f5f5f5;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        header p {
+            margin: 5px 0 0;
+            font-size: 16px;
+        }
+
+        section {
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .stats {
+            display: flex;
+            gap: 20px;
+        }
+
+        .stat {
+            background-color: #e0e0e0;
+            padding: 15px;
+            border-radius: 8px;
+            width: 20%;
+            text-align: center;
+        }
+
+        .stat h3 {
+            margin: 0;
+            font-size: 18px;
+        }
+
+        .stat p {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f5f5f5;
+        }
+
+        button {
+            padding: 8px 12px;
+            font-size: 14px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        input, select, textarea {
+            padding: 8px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="file"] {
+            padding: 5px;
+        }
+
+        #questions {
+            margin-top: 10px;
+        }
+
+        .question {
+            margin-bottom: 15px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        #logout-btn {
+            background-color: #dc3545;
+        }
+
+        #logout-btn:hover {
+            background-color: #c82333;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar Navigation -->
+    <nav id="sidebar">
+        <ul>
+            <li><a href="#dashboard">Dashboard</a></li>
+            <li><a href="#courses">My Courses</a></li>
+            <li><a href="#quizzes">Create Quiz</a></li>
+            <li><a href="#metrics">Upload Metrics</a></li>
+            <li><a href="#assignments">Assignments</a></li>
+            <li><a href="#logout" id="logout-btn">Logout</a></li> <!-- Added logout option -->
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <div id="main-content">
+        <!-- Header -->
+        <header>
+            <h1>Welcome, Teacher!</h1>
+            <p>Manage your courses, quizzes, assignments, and students here.</p>
+        </header>
+
+        <!-- Teacher Dashboard -->
+        <section id="dashboard">
+            <h2>Teacher Dashboard</h2>
+            <div class="stats">
+                <div class="stat">
+                    <h3>Total Courses</h3>
+                    <p>2</p>
+                </div>
+                <div class="stat">
+                    <h3>Active Students</h3>
+                    <p>1</p>
+                </div>
+                <div class="stat">
+                    <h3>Pending Assignments</h3>
+                    <p>0</p>
+                </div>
+                <div class="stat">
+                    <h3>Pending Quizzes</h3>
+                    <p>0</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- My Courses -->
+        <section id="courses">
+            <h2>My Courses</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Course Name</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Introduction to java Programming</td>
+                        <td>2024-01-15</td>
+                        <td>2024-05-15</td>
+                        <td><button>Edit</button> <button>View</button></td>
+                    </tr>
+                    <tr>
+                        <td>operating system</td>
+                        <td>2024-02-01</td>
+                        <td>2024-06-01</td>
+                        <td><button>Edit</button> <button>View</button></td>
+                    </tr>
+                    <!-- Add more rows as needed -->
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Create Quiz -->
+        <section id="quizzes">
+            <h2>Create a Quiz</h2>
+            <form id="quiz-form">
+                <label for="quiz-title">Quiz Title:</label>
+                <input type="text" id="quiz-title" name="quiz-title" required>
+                <br>
+                <label for="quiz-description">Description:</label>
+                <textarea id="quiz-description" name="quiz-description" rows="4" required></textarea>
+                <br>
+                <h3>Questions</h3>
+                <div id="questions">
+                    <div class="question">
+                        <label for="question-1">Question 1:</label>
+                        <input type="text" id="question-1" name="question-1" required>
+                        <br>
+                        <label for="answer-1">Answer:</label>
+                        <input type="text" id="answer-1" name="answer-1" required>
+                    </div>
+                </div>
+                <button type="button" id="add-question-btn">Add Question</button>
+                <br><br>
+                <button type="submit">Create Quiz</button>
+            </form>
+        </section>
+
+        <!-- Upload Metrics -->
+        <section id="metrics">
+            <h2>Upload Metrics</h2>
+            <form id="metrics-form">
+                <label for="metrics-file">Upload File:</label>
+                <input type="file" id="metrics-file" name="metrics-file" accept=".csv, .xls, .xlsx" required>
+                <br><br>
+                <button type="submit">Upload Metrics</button>
+            </form>
+        </section>
+
+       
+
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Learning Management System</p>
+    </footer>
+
+    <script>
+        // JavaScript to handle dynamic addition of quiz questions
+        document.getElementById('add-question-btn').addEventListener('click', function () {
+            var questionCount = document.querySelectorAll('.question').length + 1;
+            var newQuestion = document.createElement('div');
+            newQuestion.classList.add('question');
+            newQuestion.innerHTML = `
+                <label for="question-${questionCount}">Question ${questionCount}:</label>
+                <input type="text" id="question-${questionCount}" name="question-${questionCount}" required>
+                <br>
+                <label for="answer-${questionCount}">Answer:</label>
+                <input type="text" id="answer-${questionCount}" name="answer-${questionCount}" required>
+            `;
+            document.getElementById('questions').appendChild(newQuestion);
+        });
+
+        // Logout action (just an example of the UI)
+        document.getElementById('logout-btn').addEventListener('click', function() {
+            alert("You have been logged out!");
+            window.location.href = 'about.html';  // Redirect to login page (adjust URL as needed)
+        });
+    </script>
+
+</body>
+</html>

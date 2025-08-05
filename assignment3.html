@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Multiple-Choice Assignment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        form {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            max-width: 600px;
+            margin: auto;
+        }
+
+        p {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #score {
+            font-weight: bold;
+            font-size: 18px;
+            color: #333;
+        }
+        #close {
+            background-color: whitesmoke;
+            color:black;
+        }
+    </style>
+    <script>
+        function calculateScore(event) {
+            event.preventDefault(); // Prevent form submission
+
+            var score = 0;
+
+            // Define correct answers
+            var correctAnswers = {
+                "question1": "answer3",
+                "question2": "answer2",
+                "question3": "answer3",
+                "question4": "answer2",
+                "question5": "answer4",
+                "question6": "answer2",
+                "question7": "answer4",
+                "question8": "answer4",
+                "question9": "answer3",
+                "question10": "answer1"
+            };
+
+            // Loop through each question and check answers
+            for (var question in correctAnswers) {
+                var selectedOption = document.querySelector('input[name="' + question + '"]:checked');
+                if (selectedOption && selectedOption.value === correctAnswers[question]) {
+                    score++;
+                }
+            }
+
+            // Display the score
+            document.getElementById("score").innerHTML = "Your score is: " + score;
+            document.getElementById("close").disabled=false;
+            document.getElementById("close").style.backgroundColor="blue";
+            document.getElementById("close").style.color="white";
+        }
+        function feedback()
+        {
+            window.location.href="feedback.html";
+        }
+    </script>
+</head>
+<body>
+    <h1>Multiple-Choice Assignment</h1>
+
+    <form>
+        <p>Question 1: Which of the below is not a Java Profiler??</p>
+        <input type="radio" name="question1" value="answer1">JProfiler<br>
+        <input type="radio" name="question1" value="answer2"> Eclipse Profiler <br>
+        <input type="radio" name="question1" value="answer3"> JVM<br>
+        <input type="radio" name="question1" value="answer4">JConsole<br><br>
+
+        <p>Question 2: What will be the output of the following Java program?
+
+    import java.net.*;
+    class networking
+    {
+        public static void main(String[] args) throws MalformedURLException
+        {
+            URL obj = new URL("https://www.sanfoundry.com/javamcq");
+            System.out.print(obj.toExternalForm());
+        }
+    }
+
+        </p>
+        <input type="radio" name="question2" value="answer1"> www.sanfoundry.com<br>
+        <input type="radio" name="question2" value="answer2">https://www.sanfoundry.com/javamcq <br>
+        <input type="radio" name="question2" value="answer3"> sanfoundry <br>
+        <input type="radio" name="question2" value="answer4"> sanfoundry.com <br><br>
+
+        <p>Question 3:Which of these packages contains the exception Stack Overflow in Java?</p>
+        <input type="radio" name="question3" value="answer1">  java.io<br>
+        <input type="radio" name="question3" value="answer2"> java.system <br>
+        <input type="radio" name="question3" value="answer3"> java.lang<br>
+        <input type="radio" name="question3" value="answer4">  java.util <br><br>
+
+        <p>Question 4:Which of these statements is incorrect about Thread?  </p>
+        <input type="radio" name="question4" value="answer1"> start() method is used to begin execution of the thread <br>
+        <input type="radio" name="question4" value="answer2">  run() method is used to begin execution of a thread before start() method in special cases <br>
+        <input type="radio" name="question4" value="answer3"> A thread can be formed by implementing Runnable interface only        <br>
+        <input type="radio" name="question4" value="answer4"> A thread can be formed by a class that extends Thread class        <br><br>
+
+        <p>Question 5: Which of these keywords are used for the block to be examined for exceptions?</p>
+        <input type="radio" name="question5" value="answer1"> check<br>
+        <input type="radio" name="question5" value="answer2"> throw<br>
+        <input type="radio" name="question5" value="answer3"> catch<br>
+        <input type="radio" name="question5" value="answer4"> try<br><br>
+
+        <p>Question 6:Which one of the following is not an access modifier?</p>
+        <input type="radio" name="question6" value="answer1">protected<br>
+        <input type="radio" name="question6" value="answer2"> void<br>
+        <input type="radio" name="question6" value="answer3"> public<br>
+        <input type="radio" name="question6" value="answer4"> private<br><br>
+
+        <p>Question 7:What will be the output of the following Java code snippet?
+            import java.util.*;
+            class Arraylists 
+            {
+                public static void main(String args[]) 
+                {
+                    ArrayLists obj = new ArrayLists();
+                    obj.add("A");
+                    obj.add("B");
+                    obj.add("C");
+                    obj.add(1, "D");
+                    System.out.println(obj);
+                }
+            }
+        
+        </p>
+        <input type="radio" name="question7" value="answer1">  [A, D, C] <br>
+        <input type="radio" name="question7" value="answer2">  [A, B, C]<br>
+        <input type="radio" name="question7" value="answer3"> [A, B, C, D] <br>
+        <input type="radio" name="question7" value="answer4"> [A, D, B, C]<br><br>
+
+        <p>Question 8: Which class provides system independent server side implementation?</p>
+        <input type="radio" name="question8" value="answer1"> Server<br>
+        <input type="radio" name="question8" value="answer2"> ServerReader <br>
+        <input type="radio" name="question8" value="answer3"> Socket<br>
+        <input type="radio" name="question8" value="answer4"> ServerSocket<br><br>
+
+        <p>Question 9: What is the purpose of the PATH environment variable in Java?</p>
+        <input type="radio" name="question9" value="answer1">To locate Java libraries <br>
+        <input type="radio" name="question9" value="answer2"> To store Java bytecode<br>
+        <input type="radio" name="question9" value="answer3"> To Locate the exe files (.exe)  <br>
+        <input type="radio" name="question9" value="answer4">To optimize Java code<br><br>
+
+        <p>Question 10: How do I comment on a block of code in Java?</p>
+        <input type="radio" name="question10" value="answer1">comment/ <br>
+        <input type="radio" name="question10" value="answer2">/comment<br>
+        <input type="radio" name="question10" value="answer3">!--comment-- <br>
+        <input type="radio" name="question10" value="answer4"> %comment<br><br>
+
+        <button type="submit" id="sub" onclick="calculateScore(event)">Submit</button>
+        <button type="button" id="close" onclick="feedback()" disabled >Close</button>
+    </form>
+
+    <p id="score"></p>
+</body>
+</html>

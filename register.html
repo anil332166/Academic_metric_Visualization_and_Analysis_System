@@ -1,0 +1,124 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>register</title>
+
+   <style>
+    *{
+         margin:0;
+         padding: 0;
+         box-sizing: border-box;
+     }
+     body {
+          background-color: gray;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+     }
+     .form {
+          width: 350px;
+          background-color: rgb(147, 189, 231);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          padding: 30px;
+
+    }
+     .field{
+         display: flex;
+         flex-direction: column;
+         width: 100%;
+         margin: 5px 0;
+     }
+     .field input{
+         width: 100%;
+         outline: none;
+         border: 2px solid rgb(120, 120, 183);
+         border-radius: 5px;
+         padding: 10px;
+     }
+     button{
+         border: none;
+         outline: none;
+         background-color: rgb(174, 86, 174);
+         width: 100%;
+         padding: 10px;
+         color: #fff;
+         border-radius: 5px;
+     }
+ </style>
+<head>
+
+<body>
+ <div class="form">
+     <div class="user">
+         <img src="c:\Users\ASUS\AppData\Local\Temp\00a96804-446e-4af4-873f-3d8cf01f5060_front-end_-_online_courses_website[1].zip.060\desgin\images\pic-1.jpg" alt="">
+
+     </div>
+     <div class="field">
+            <label>name</label>
+            <input type="name" name="name" id="name">
+         <div class="field">
+                <label>email</label>
+                <input type="email" name="email" id="email">
+             <div class="field">
+                  <label>Password</label>
+                  <input type="password" name="password" id="password">
+                
+               
+         </div>
+   
+     </div>
+     <script>
+         function validate()
+         {
+            var name=document.getElementById("name").value;
+             if(name==""||name==null)
+             {
+                 alert("Enter the name.");
+             }
+             else{
+                if(name!="alphabets")
+             {
+                 alert("enter the name")
+             }
+            }
+             var email=document.getElementById("email").value;
+             if(email==""||email==null)
+             {
+             alert("Enter the email.");
+             }
+          else{
+             if(email!="vtu22799@veltech.edu.in")
+             {
+                 alert("enter the valid email")
+             }
+          }
+          var password=document.getElementById("password").value;
+          if(password==""||password==null)
+          {
+             alert("Enter the password.");
+          }
+          else if(password!="22UECS0362")
+             {
+                 alert("enter the valid password");
+             }
+             
+          else{
+             window.location="login1.html";
+          }
+         
+         }
+        
+     </script>
+     
+     <button type="submit" onclick="validate()">register</button>
+
+ </div>
+</body>
+</head>

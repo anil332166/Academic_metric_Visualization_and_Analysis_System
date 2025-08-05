@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Assignment with Score</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        #timer {
+            font-size: 20px;
+            font-weight: bold;
+            color: red;
+            margin-bottom: 20px;
+        }
+        textarea {
+            width: 100%;
+            height: 300px;
+            font-size: 16px;
+            margin-bottom: 10px;
+            padding: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-right: 10px;
+            display: inline-block;
+        }
+        #output {
+            margin-top: 20px;
+            padding: 10px;
+            background: #f4f4f4;
+            border: 1px solid #ddd;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>Coding Assignment</h1>
+    <div id="timer">Time Remaining: 10:00</div>
+    <p>Write a function in the editor below that returns the string <strong>"Hello, World!"</strong>. You can run your code to check the output.</p>
+    <textarea id="codeEditor">// Write your code here...\nfunction helloWorld() {\n    // Your code here\n}</textarea>
+    <button id="runButton" onclick="runCode()">Run Code</button>
+    <button id="submitButton" onclick="submitCode()" disabled>Submit Code</button>
+    <div id="output"></div>
+
+    <script>
+        let totalTime = 10 * 60; // Time limit in seconds
+        const timerElement = document.getElementById("timer");
+        const codeEditor = document.getElementById("codeEditor");
+        const runButton = document.getElementById("runButton");
+        const submitButton = document.getElementById("submitButton");
+        const outputElement = document.getElementById("output");
+        let isCorrectOutput = false; // Track if the output is correct
+
+        // Timer logic
+        const timerInterval = setInterval(() => {
+            const minutes = Math.floor(totalTime / 60);
+            const seconds = totalTime % 60;
+            timerElement.textContent = Time Remaining: ${minutes}:${seconds < 10 ? "0" : ""}${seconds};
+            totalTime--;
+
+            if (totalTime < 0) {
+                clearInterval(timerInterval);
+                timerElement.textContent = "Time is up!";
+                codeEditor.disabled = true;
+                runButton.disabled = true;
+                submitButton.disabled = true;
+                alert("Time is up! You failed to submit the correct code.");
+            }
+        }, 1000);
+
+        // Function to run the code and verify the output
+        function runCode() {
+            const code = codeEditor.value;
+            outputElement.textContent = ""; // Clear previous output
+            try {
+                const result = eval((function() { ${code} return helloWorld(); })()); // Execute the user's code
+                if (result === "Hello, World!") {
+                    outputElement.textContent = Output: ${result} (Correct!);
+                    outputElement.style.color = "green";
+                    isCorrectOutput = true;
+                    submitButton.disabled = false; // Enable the submit button
+                } else {
+                    outputElement.textContent = Output: ${result} (Incorrect. Expected: "Hello, World!");
+                    outputElement.style.color = "red";
+                    isCorrectOutput = false;
+                }
+            } catch (error) {
+                outputElement.textContent = Error: ${error.message};
+                outputElement.style.color = "red";
+                isCorrectOutput = false;
+            }
+        }
+
+        // Function to handle code submission and scoring
+        function submitCode() {
+            if (isCorrectOutput) {
+                const score = Math.max(0, Math.round((totalTime / (10 * 60)) * 100)); // Calculate score based on time left
+                alert(Your code has been submitted successfully!\nScore: ${score});
+                clearInterval(timerInterval); // Stop the timer
+                codeEditor.disabled = true;
+                runButton.disabled = true;
+                submitButton.disabled = true;
+            } else {
+                alert("Your output is incorrect. Please fix your code before submitting.");
+            }
+        }
+    </script>
+</body>
+</html>

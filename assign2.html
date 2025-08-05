@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Multiple-Choice Assignment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        form {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            max-width: 600px;
+            margin: auto;
+        }
+
+        p {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #score {
+            font-weight: bold;
+            font-size: 18px;
+            color: #333;
+        }
+        #close {
+            background-color: whitesmoke;
+            color:black;
+        }
+    </style>
+    <script>
+        function calculateScore(event) {
+            event.preventDefault(); // Prevent form submission
+
+            var score = 0;
+
+            // Define correct answers
+            var correctAnswers = {
+                "question1": "answer4",
+                "question2": "answer2",
+                "question3": "answer2",
+                "question4": "answer3",
+                "question5": "answer2",
+                "question6": "answer3",
+                "question7": "answer2",
+                "question8": "answer3",
+                "question9": "answer1",
+                "question10": "answer4"
+            };
+
+            // Loop through each question and check answers
+            for (var question in correctAnswers) {
+                var selectedOption = document.querySelector('input[name="' + question + '"]:checked');
+                if (selectedOption && selectedOption.value === correctAnswers[question]) {
+                    score++;
+                }
+            }
+
+            // Display the score
+            document.getElementById("score").innerHTML = "Your score is: " + score;
+            document.getElementById("close").disabled=false;
+            document.getElementById("close").style.backgroundColor="blue";
+            document.getElementById("close").style.color="white";
+        }
+        function feedback()
+        {
+            window.location.href="feedback.html";
+        }
+    </script>
+</head>
+<body>
+    <h1>Multiple-Choice Assignment</h1>
+
+    <form>
+        <p>Question 1: Which of the following is NOT a basic function of an operating system?
+        </p>
+        <input type="radio" name="question1" value="answer1">Memory management <br>
+        <input type="radio" name="question1" value="answer2">  Task scheduling  
+        <br>
+        <input type="radio" name="question1" value="answer3">File management <br>
+        <input type="radio" name="question1" value="answer4">Image editing
+        <br><br>
+
+        <p>Question 2: What is the main purpose of the operating system’s kernel?
+
+
+        </p>
+        <input type="radio" name="question2" value="answer1">  To provide the user interface<br>
+        <input type="radio" name="question2" value="answer2">To manage hardware resources <br>
+        <input type="radio" name="question2" value="answer3"> To run applications   <br>
+        <input type="radio" name="question2" value="answer4"> To perform software installations
+        <br><br>
+
+        <p>Question 3:Which of the following is a component of the operating system that provides the interface between the hardware and software?
+
+        </p>
+        <input type="radio" name="question3" value="answer1"> Shell  
+        <br>
+        <input type="radio" name="question3" value="answer2">  Kernel  
+        <br>
+        <input type="radio" name="question3" value="answer3"> File system  
+        <br>
+        <input type="radio" name="question3" value="answer4"> Command line <br><br>
+
+        <p>Question 4:Which of the following is an example of system software?
+
+        </p>
+        <input type="radio" name="question4" value="answer1"> Microsoft Word  <br>
+        <input type="radio" name="question4" value="answer2">   Google Chrome  
+        <br>
+        <input type="radio" name="question4" value="answer3">Linux  
+        <br>
+        <input type="radio" name="question4" value="answer4">Adobe Photoshop
+        <br><br>
+
+        <p>Question 5:Which of the following OS components is responsible for managing files and directories?
+
+        </p>
+        <input type="radio" name="question5" value="answer1"> CPU scheduler <br>
+        <input type="radio" name="question5" value="answer2"> File system<br>
+        <input type="radio" name="question5" value="answer3"> Memory manager  
+        <br>
+        <input type="radio" name="question5" value="answer4"> Disk manager
+        <br><br>
+
+        <p>Question 6:The "process management" function of an operating system involves:
+        </p>
+        <input type="radio" name="question6" value="answer1">Managing memory allocation  
+        <br>
+        <input type="radio" name="question6" value="answer2"> Managing user input<br>
+        <input type="radio" name="question6" value="answer3">Managing the execution of processes  
+        <br>
+        <input type="radio" name="question6" value="answer4"> Managing file access
+        <br><br>
+
+        <p>Question 7:Which of the following is a type of operating system that provides a single task for one user?
+        
+        </p>
+        <input type="radio" name="question7" value="answer1">  Multi-tasking OS  <br>
+        <input type="radio" name="question7" value="answer2">  Single-user, single-tasking OS  
+        <br>
+        <input type="radio" name="question7" value="answer3"> Multi-user OS  
+        <br>
+        <input type="radio" name="question7" value="answer4"> Real-time OS
+        <br><br>
+
+        <p>Question 8:  What is the role of the "scheduler" in an operating system?
+
+        </p>
+        <input type="radio" name="question8" value="answer1"> Manage file permissions  
+        <br>
+        <input type="radio" name="question8" value="answer2"> Manage memory allocation  
+        <br>
+        <input type="radio" name="question8" value="answer3">  Decide which process runs next  
+        <br>
+        <input type="radio" name="question8" value="answer4"> Provide network security
+        <br><br>
+
+        <p>Question 9:Which of the following is an essential feature of a multi-tasking operating system?
+
+        </p>
+        <input type="radio" name="question9" value="answer1">The ability to run multiple processes simultaneously  
+        <br>
+        <input type="radio" name="question9" value="answer2">The ability to run only one process at a time<br>
+        <input type="radio" name="question9" value="answer3"> The ability to manage only one user  
+        <br>
+        <input type="radio" name="question9" value="answer4">The ability to manage hardware resources only
+        <br><br>
+
+        <p>Question 10:Which of the following is NOT a characteristic of an operating system?
+        </p>
+        <input type="radio" name="question10" value="answer1">Provides an environment for programs to run  
+        <br>
+        <input type="radio" name="question10" value="answer2">Manages hardware resources  
+        <br>
+        <input type="radio" name="question10" value="answer3">Offers a user interface  
+        <br>
+        <input type="radio" name="question10" value="answer4"> Acts as an internet browser
+        <br><br>
+
+        <button type="submit" id="sub" onclick="calculateScore(event)">Submit</button>
+        <button type="button" id="close" onclick="feedback()" disabled >Close</button>
+    </form>
+
+    <p id="score"></p>
+</body>
+</html>

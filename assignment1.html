@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Multiple-Choice Assignment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        form {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            max-width: 600px;
+            margin: auto;
+        }
+
+        p {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #score {
+            font-weight: bold;
+            font-size: 18px;
+            color: #333;
+        }
+        #close {
+            background-color: whitesmoke;
+            color:black;
+        }
+    </style>
+    <script>
+        function calculateScore(event) {
+            event.preventDefault(); // Prevent form submission
+
+            var score = 0;
+
+            // Define correct answers
+            var correctAnswers = {
+                "question1": "answer2",
+                "question2": "answer4",
+                "question3": "answer3",
+                "question4": "answer2",
+                "question5": "answer3",
+                "question6": "answer4",
+                "question7": "answer3",
+                "question8": "answer4",
+                "question9": "answer3",
+                "question10": "answer2"
+            };
+
+            // Loop through each question and check answers
+            for (var question in correctAnswers) {
+                var selectedOption = document.querySelector('input[name="' + question + '"]:checked');
+                if (selectedOption && selectedOption.value === correctAnswers[question]) {
+                    score++;
+                }
+            }
+
+            // Display the score
+            document.getElementById("score").innerHTML = "Your score is: " + score;
+            document.getElementById("close").disabled=false;
+            document.getElementById("close").style.backgroundColor="blue";
+            document.getElementById("close").style.color="white";
+        }
+        function feedback()
+        {
+            window.location.href="feedback.html";
+        }
+    </script>
+</head>
+<body>
+    <h1>Multiple-Choice Assignment</h1>
+
+    <form>
+        <p>Question 1: Who invented Java Programming?</p>
+        <input type="radio" name="question1" value="answer1">Guido van Rossum<br>
+        <input type="radio" name="question1" value="answer2"> James Gosling<br>
+        <input type="radio" name="question1" value="answer3"> Dennis Ritchie<br>
+        <input type="radio" name="question1" value="answer4">Bjarne Stroustrup<br><br>
+
+        <p>Question 2: Which statement is true about Java?</p>
+        <input type="radio" name="question2" value="answer1"> Java is a sequence-dependent programming language<br>
+        <input type="radio" name="question2" value="answer2"> Java is a code dependent programming language<br>
+        <input type="radio" name="question2" value="answer3"> Java is a platform-dependent programming language<br>
+        <input type="radio" name="question2" value="answer4"> Java is a platform-independent programming language<br><br>
+
+        <p>Question 3: Which component is used to compile, debug, and execute the Java programs?</p>
+        <input type="radio" name="question3" value="answer1"> JRE<br>
+        <input type="radio" name="question3" value="answer2"> JITR<br>
+        <input type="radio" name="question3" value="answer3"> JDK<br>
+        <input type="radio" name="question3" value="answer4"> JVM<br><br>
+
+        <p>Question 4: Which one of the following is not a Java feature?</p>
+        <input type="radio" name="question4" value="answer1"> Object-oriented<br>
+        <input type="radio" name="question4" value="answer2"> Use of pointers<br>
+        <input type="radio" name="question4" value="answer3"> Portable<br>
+        <input type="radio" name="question4" value="answer4"> Dynamic and Extensible<br><br>
+
+        <p>Question 5: Which of these cannot be used for a variable name in Java?</p>
+        <input type="radio" name="question5" value="answer1"> identifier & keyword<br>
+        <input type="radio" name="question5" value="answer2"> identifier<br>
+        <input type="radio" name="question5" value="answer3"> keyword<br>
+        <input type="radio" name="question5" value="answer4"> none of the mentioned<br><br>
+
+        <p>Question 6: What is the extension of Java code files?</p>
+        <input type="radio" name="question6" value="answer1"> .js<br>
+        <input type="radio" name="question6" value="answer2"> .txt<br>
+        <input type="radio" name="question6" value="answer3"> .class<br>
+        <input type="radio" name="question6" value="answer4"> .java<br><br>
+
+        <p>Question 7: What is the extension of compiled Java classes?</p>
+        <input type="radio" name="question7" value="answer1"> .txt<br>
+        <input type="radio" name="question7" value="answer2"> .js<br>
+        <input type="radio" name="question7" value="answer3"> .class<br>
+        <input type="radio" name="question7" value="answer4"> .java<br><br>
+
+        <p>Question 8: Which environment variable is used to set the Java path?</p>
+        <input type="radio" name="question8" value="answer1"> MAVEN_Path<br>
+        <input type="radio" name="question8" value="answer2"> JavaPATH<br>
+        <input type="radio" name="question8" value="answer3"> JAVA<br>
+        <input type="radio" name="question8" value="answer4"> JAVA_HOME<br><br>
+
+        <p>Question 9: Which of the following is not an OOPS concept in Java?</p>
+        <input type="radio" name="question9" value="answer1"> Polymorphism<br>
+        <input type="radio" name="question9" value="answer2"> Inheritance<br>
+        <input type="radio" name="question9" value="answer3"> Compilation<br>
+        <input type="radio" name="question9" value="answer4"> Encapsulation<br><br>
+
+        <p>Question 10: Which of the following is a type of polymorphism in Java Programming?</p>
+        <input type="radio" name="question10" value="answer1"> Multiple polymorphism<br>
+        <input type="radio" name="question10" value="answer2"> Compile time polymorphism<br>
+        <input type="radio" name="question10" value="answer3"> Multilevel polymorphism<br>
+        <input type="radio" name="question10" value="answer4"> Execution time polymorphism<br><br>
+
+        <button type="submit" id="sub" onclick="calculateScore(event)">Submit</button>
+        <button type="button" id="close" onclick="feedback()" disabled >Close</button>
+    </form>
+
+    <p id="score"></p>
+</body>
+</html>

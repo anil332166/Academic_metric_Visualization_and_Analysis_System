@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K-Means Clustering Visualization</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        canvas {
+            max-width: 800px;
+            margin: auto;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <h1>Academic Metrics K-Means Clustering</h1>
+    <p>This visualization clusters students based on scores in two subjects.</p>
+    <canvas id="kMeansChart"></canvas>
+    
+    <script>
+        // Sample dataset: [Subject 1 Score, Subject 2 Score]
+        const dataPoints = [
+            [85, 92], [88, 95], [84, 89], [75, 70], [78, 72],
+            [74, 69], [65, 60], [68, 63], [66, 61], [90, 95],
+            [89, 93], [91, 96], [45, 50], [50, 55], [48, 52],
+            [47, 49], [51, 54], [49, 50], [85, 86], [88, 87]
+        ];
+
+        const k = 3; // Number of clusters
+
+        // Initialize centroids randomly
+        function initializeCentroids(data, k) {
+            const centroids = [];
+            const indices = new Set();
+            while (centroids.length < k) {
+                const idx = Math.floor(Math.random() * data.length);
+                if (!indices.has(idx)) {
+                    centroids.push(data[idx]);
+                    indices.add(idx);
+                }
+            }
+            return centroids;
+        }
+
+        // Assign each point to the nearest centroid
+        function assignClusters(data, centroids) {
+            return data.map(point => {
+                let minDist = Infinity;
+                let cluster = -1;
+                centroids.forEach((centroid, index) => {
+                    const dist = Math.sqrt(
+                        Math.pow(point[0] - centroid[0], 2) + Math.pow(point[1] - centroid[1], 2)
+                    );
+                    if (dist < minDist) {
+                        minDist = dist;
+                        cluster = index;
+                    }
+                });
+                return cluster;
+            });
+        }
+
+        // Update centroids by averaging the points in each cluster
+        function updateCentroids(data, labels, k) {
+            const newCentroids = Array.from({ length: k }, () => [0, 0]);
+            const counts = Array(k).fill(0);
+
+            data.forEach((point, i) => {
+                const cluster = labels[i];
+                newCentroids[cluster][0] += point[0];
+                newCentroids[cluster][1] += point[1];
+                counts[cluster]++;
+            });
+
+            return newCentroids.map((sum, i) => [
+                sum[0] / counts[i] || sum[0],
+                sum[1] / counts[i] || sum[1],
+            ]);
+        }
+
+        // K-Means algorithm
+        function kMeans(data, k, maxIters = 100) {
+            let centroids = initializeCentroids(data, k);
+            let labels = [];
+            for (let i = 0; i < maxIters; i++) {
+                labels = assignClusters(data, centroids);
+                const newCentroids = updateCentroids(data, labels, k);
+
+                if (JSON.stringify(newCentroids) === JSON.stringify(centroids)) break;
+                centroids = newCentroids;
+            }
+            return { centroids, labels };
+        }
+
+        // Run the K-Means algorithm
+        const { centroids, labels } = kMeans(dataPoints, k);
+
+        // Prepare data for visualization
+        const clusters = Array.from({ length: k }, () => []);
+        dataPoints.forEach((point, i) => clusters[labels[i]].push(point));
+
+        // Colors for clusters
+        const colors = ['#FF6384', '#36A2EB', '#FFCE56'];
+
+        // Create Chart.js scatter plot
+        const ctx = document.getElementById('kMeansChart').getContext('2d');
+        const datasets = clusters.map((cluster, i) => ({
+            label: Cluster ${i + 1},
+            data: cluster.map(([x, y]) => ({ x, y })),
+            backgroundColor: colors[i],
+        }));
+        datasets.push({
+            label: 'Centroids',
+            data: centroids.map(([x, y]) => ({ x, y })),
+            backgroundColor: '#000',
+            borderColor: '#000',
+            borderWidth: 2,
+            pointStyle: 'star',
+        });
+
+        new Chart(ctx, {
+            type: 'scatter',
+            data: {
+                datasets: datasets,
+            },
+            options: {
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                },
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Subject 1 Score',
+                        },
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Subject 2 Score',
+                        },
+                    },
+                },
+            },
+        });
+    </script>
+</body>
+</html>
